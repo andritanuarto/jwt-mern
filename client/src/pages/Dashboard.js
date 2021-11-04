@@ -33,7 +33,7 @@ const Dashboard = () => {
 				populateQuote()
 			}
 		}
-	}, [])
+	}, []);
 
 	async function updateQuote(event) {
 		event.preventDefault()

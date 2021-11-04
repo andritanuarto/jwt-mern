@@ -12,17 +12,17 @@ app.use(express.json())
 mongoose.connect('mongodb://localhost:27017/full-mern-stack-video')
 
 app.post('/api/register', async (req, res) => {
-	console.log(req.body)
+	console.log(req.body);
 	try {
-		const newPassword = await bcrypt.hash(req.body.password, 10)
+		const newPassword = await bcrypt.hash(req.body.password, 10);
 		await User.create({
 			name: req.body.name,
 			email: req.body.email,
 			password: newPassword,
-		})
-		res.json({ status: 'ok' })
+		});
+		res.json({ status: 'ok' });
 	} catch (err) {
-		res.json({ status: 'error', error: 'Duplicate email' })
+		res.json({ status: 'error', error: 'Duplicate email' });
 	}
 })
 
